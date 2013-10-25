@@ -1,0 +1,86 @@
+/*
+///////////////////////////////////////////////////////////
+	Asprotect 1.23 RC4 OEP finder v0.1
+        Author  :  arz
+        Modifly :  loveboom
+        Email   :  bmd2chen@tom.com
+        os      :  Win2kADV sp2,Ollydbg 1.1b, ollyscript v0.7
+        Date    :  2004-4-14
+        Config  :  Ingore all exceptions except memory access violation
+        Note    :  Script can help hide your OD,found target's oep
+///////////////////////////////////////////////////////////							
+*/
+
+var j
+var k
+var cbase
+var csize
+gmi eip,CODEBASE                      //Get code base information
+cmp $RESULT,0
+je lblabort
+mov cbase,$RESULT
+gmi eip,CODESIZE                     //Get code size information
+cmp $RESULT,0
+je lblabort
+mov csize,$RESULT
+
+eoe main
+
+main:                                   //check for signature bytes
+  mov j,eip
+  add j,47
+  mov k,[j]
+  mov j,[k]
+  cmp j,746F7250		
+  je reset
+
+                                        //last exception? 
+  mov j,esp				//based on britedreams lastex
+  add j,1C
+  mov k,[j]
+  cmp k,400000
+  je next
+  cmp k,1000000			        //did some testing on notepad :P
+  je next
+  jmp continue
+
+
+reset:                                 //zero the debugger check flags for no debugger checks 
+  mov j,eip
+  add j,41
+  mov k,[j]				// get ptr to debug check array
+  sub k,4				// k Ptr do IsDebuggerPresent check flag
+  mov [k],0				// kill it (api won't be called)
+  add k,8				// k Ptr do anti-debug checks flag	
+  mov [k],0				// kill the internal FS[?],TRW and system debugger checks
+  jmp continue
+
+
+continue:
+  esto
+  jmp main
+
+next:
+  find eip,#C3#                         //find command "retn"
+  cmp $RESULT,0
+  je lblabort
+  eob lbl1
+  bp $RESULT
+  esto
+
+lbl1:
+  bc $RESULT
+  eob lblend
+  eoe lblend
+  bprm cbase,csize
+  esto
+
+lblend:
+  bpmc
+  cmt eip,"OEP found,please dumped it!"
+  msg "Script by arz,Modifly by loveboom[DFCG][FCG],Thank you for using my script!"
+  ret
+
+lblabort:
+  msg "Error,Script abort!,Maybe target is not protect by asprotect 1.23rc4."
+  ret

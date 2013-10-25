@@ -1,0 +1,46 @@
+[Language]
+szMnufile=&File
+szMnuSubNew=&New File
+szMnuSubOpen=&Open file
+szMnuSubSave=&Save file
+szMnusubExit=E&xit
+
+szMnuView=&View
+szMnuSubCmdLst=&Commands list
+szMnuSubCmdInfo=Command &Information
+
+szMnuOther=&Other
+szMnuSubOption=&Option
+szMnuSubAECMD=&Add/Edit command
+
+szMnuHelp=&Help
+szMnuSubContent=&Content
+szMnuSubAbout=&About
+
+szFrameCmd=Commands list:
+szFrameHelp=Command information:
+szSaveFileMsg=File is Changed,do you want to save changes
+szSaveFinishedMsg=save finished!
+szFileToBigMsg=Cann't open this file,because file size>64KB
+szNCNumber=Number:
+szNCCommand=Command:
+szNCInfo=Information:
+szNCpar=Parameter:
+szNCCaption=Add/Edit Command
+szNCOk=&Save
+szNCExit=E&xit
+
+szOptMusic=&Music
+szOptAutoLT=&Auto Load Template
+szOptlblTip=(Default.txt must be exist.)
+szOptListFile=List File:
+szOptRegShellExt=&Register shell extension
+szLoadListFileErrMsg=Sorry,load list files failed.:-(
+szRegKeyError=Register shell extension failed.
+szDelRegKeyError=Delete key failed.
+szOptCmdSave=&Save
+szOptCmdExit=E&xit
+szOptReStart=You must restart me for the changes to take effect.
+szOptChkIndent=&Indent
+szOptlblsize=Size:
+szOptShowTip=&Show Tip

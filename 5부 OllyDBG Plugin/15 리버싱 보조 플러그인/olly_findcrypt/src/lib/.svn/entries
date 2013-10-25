@@ -1,0 +1,29 @@
+8
+
+dir
+6
+svn://window32.iptime.org:1193/Microsoftware/2008.12/%EB%8B%A4%EB%A5%B8PC/12%EC%9B%94%ED%98%B8/olly_findcrypt/src/lib
+svn://window32.iptime.org:1193/Microsoftware
+
+
+
+2011-04-10T15:24:04.093750Z
+6
+window31
+
+
+svn:special svn:externals svn:needs-lock
+
+OLLYDBG.LIB
+file
+
+
+
+
+2011-04-02T13:14:04.531250Z
+78c307baa1891955921fed52df36d3aa
+2011-04-10T15:24:04.093750Z
+6
+window31
+has-props
+

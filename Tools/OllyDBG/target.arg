@@ -1,0 +1,214 @@
+info "custom function description " collection on Vb strings,Written by Teerayoot(Cr.Jack@bugsgroup.com) 
+info "Modify by BasengBae" 
+info rename this file to target name(target.arg) then copy to Ollydbg folder 
+
+info MSVBVM60.__vbaStrCmp 
+Type Value1 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+Type Value2 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+FUNCTION __vbaStrCmp 
+"Arg1" Value1 
+"Arg2" Value1 
+End 
+
+
+info MSVBVM60.__vbaStrCat 
+Type Value3 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+Type Value4 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+FUNCTION __vbaStrCat 
+"Address" Value3 
+"Strings" Value4 
+END 
+
+
+info __vbaStrCopy (set bp on SysAllocStringByteLen in OLEAUT32 module) 
+Type Value5 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+Type Value6 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+FUNCTION SysAllocStringByteLen 
+"arg1" Value5 
+"arg2" Value6 
+END 
+
+info __vbaStrComp (set bp on VarBstrCmp in OLEAUT32 module) 
+Type Value7 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+Type Value8 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+FUNCTION VarBstrCmp 
+"string" Value7 
+"string" Value8 
+
+END 
+
+
+
+info MSVBVM60.__vbaVarTstEq(not implement yet) 
+Type Value9 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+Type Value10 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+FUNCTION __vbaVarTstEq 
+"string" Value9 
+"string" Value10 
+
+
+END 
+info MSVBVM60.__vbaVarTstGt 
+Type Value11 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+Type Value12 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+FUNCTION __vbaVarTstGt(not implement yet) 
+"string" Value11 
+"string" Value12 
+
+
+END 
+
+
+Type Value13 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+Type Value14 
+Text "(Hex=" 
+HEX 
+Text " INT=" 
+INT 
+Text " UNICODE=" 
+TRYUNICODE 
+Text ")" 
+End 
+
+info MSVBVM60.__vbaVarTstNe 
+FUNCTION vbaVarTstNe 
+"string" Value13 
+"string" Value14 
+
+END 
+
+info MSVBVM60.__vbaFileOpen 
+FUNCTION __vbaFileOpen 
+"flag" HEX 
+"flag" HEX 
+"flag" HEX 
+"filename" UNICODE 
+
+
+
+END 
+info rtcMsgBox(not implement yet) 
+FUNCTION rtcMsgBox 
+"string" FORMAT 
+"string" FORMAT 
+"string" FORMAT 
+"string" FORMAT 
+"string" FORMAT 
+
+END 
+

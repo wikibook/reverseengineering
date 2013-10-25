@@ -1,0 +1,101 @@
+var gmaddr
+var addr
+var addru
+var addrd
+var count 
+var seip
+
+#log
+    ask "1.Start;2.clearJunkcode1.3.Clear Junkcode2.Press a number."				
+    cmp $RESULT,1
+    je lbl1
+    cmp $RESULT,2
+    je lblcjunkcode1
+    cmp $RESULT,3
+    je lblcjunkcode2
+    jmp lblret
+
+lbl1:
+   
+   dbh
+   gpa "GetModuleHandleA","kernel32.dll"
+   mov gmaddr,$RESULT
+   add gmaddr,5
+   bp gmaddr
+   run
+   run
+   run
+
+lbl2:
+   bc gmaddr
+   rtu
+
+lbl3:
+   mov addr,381F66
+   mov [addr],#E955030000#
+   mov addr,3822d6
+   mov [addr],#EB18#
+   gpa "EnableWindow","user32.dll"
+   mov gmaddr,$RESULT
+   go gmaddr
+   mov addr,esp
+   add addr,8
+   mov [addr],#01#
+   rtu
+   gpa "GetCurrentThread","kernel32.dll"
+   mov gmaddr,$RESULT
+   bp gmaddr
+   run
+   run
+   rtu
+
+lbl4:
+   mov addr,eip
+   mov [addr],#EB14#
+   gpa "VirtualAlloc","kernel32.dll"
+   mov gmaddr,$RESULT
+   go gmaddr
+   rtu
+   gpa "LoadLibraryA","Kernel32.dll"
+   mov gmaddr,$RESULT
+   go gmaddr
+   go gmaddr
+   rtu
+   jmp lblret
+
+lblcjunkcode1:
+   find eip,#68??????????E85D000000#
+   cmp $RESULT,0
+   je lblret
+   fill $RESULT,14F,90
+   repl eip,#7C05EB05??????????????????????EB02??????E804000000????????83C404????????????EB04????????E9??????????#,#909090909090909090????????????90909090??909090909090909090909090????????????909090909090E9????????90#,1FFF
+   jmp lblret
+
+lblcjunkcode2:
+   mov seip,eip
+   mov count,5
+
+lblcjunk1:
+   cmp count,0
+   je lblret
+   find seip,#EB??EBDF#
+   cmp $RESULT,0
+   je lblret
+   mov addru,$RESULT
+   find addru,#9AC0#
+   cmp $RESULT,0
+   je lblret
+   mov addrd,$RESULT
+   add addrd,2
+   mov seip,addrd
+   sub addrd,addru
+   cmp addrd,30
+   jae lblret
+   fill addru,addrd,90
+   dec count
+   jmp lblcjunk1
+
+lblret:
+   ret
+
+

@@ -1,0 +1,90 @@
+//test for arm 3.x std protect
+//Ignore all exceptions,Ignore 'C000001E' exception.
+var Oaddr		        //GetProcAddress 'OpenMutexA'
+var GMaddr			//GetProceAddress "GetModuleHandleA"
+var patchaddr			//Get patch code address
+var espval
+var faddr			//find code address
+
+
+start:
+  dbh
+  gpa "OpenMutexA","kernel32.dll"
+  mov Oaddr,$RESULT
+  bp Oaddr
+  run
+
+lbl1:
+  bc Oaddr
+  asm Oaddr,"jmp 401000"
+  sto
+  
+lblmodi:
+  mov [Oaddr],#558BEC5151#
+  mov patchaddr,eip
+  mov [patchaddr],#609C68#
+  add patchaddr,3
+  mov [patchaddr],ecx
+  add patchaddr,4
+  mov [patchaddr],#33C05050#
+  add patchaddr,4
+  asm patchaddr,"Call CreateMutexA"
+  add patchaddr,5
+  mov [patchaddr],#9D61#
+  add patchaddr,2
+  asm patchaddr,"jmp OpenMutexA"
+
+lbl2:
+  gpa "GetModuleHandleA","kernel32.dll"
+  mov GMaddr,$RESULT
+  bphws GMaddr,"x"
+
+lblrun:
+  esto
+
+
+lbl4:
+  mov espval,esp
+  add espval,4
+  cmp [espval],0
+  je lbl5
+  jmp lblrun
+
+lbl5:
+  rtu
+
+lblfcode:
+  findop eip,#750F#
+  cmp $RESULT,0
+  je lblrun
+  mov faddr,$RESULT
+  sub faddr,eip
+  cmp faddr,6
+  jne lblrun
+  find eip,#8338000F84#
+  cmp $RESULT,0
+  je lblrun
+  bphwc GMaddr
+  mov patchaddr,$RESULT
+  bp patchaddr
+  run
+
+lblpatch:
+  bc patchaddr
+  mov [eax],0
+
+
+lblbprm:
+  find eip,#2BF9FFD7#
+  mov faddr,$RESULT
+  bphws faddr,"x"
+  run
+
+lbl6:
+   bphwc faddr
+   sti
+   sti
+   dpe "dumped.exe",eip
+lblend:
+   cmt eip,"OEP found,IAT has been fix."
+   ret

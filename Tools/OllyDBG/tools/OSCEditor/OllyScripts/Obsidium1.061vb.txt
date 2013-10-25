@@ -1,0 +1,83 @@
+/*
+//////////////////////////////////////////////////
+	Obsidium 1.061 OEP Finder v0.11(VB only)
+	Author:	loveboom
+	Email : bmd2chen@tom.com
+	OS    : Win2kADV sp2,OllyDbg 1.1b,OllyScript v0.7
+	Date  : 2004-4-22
+        Action: Fix import function,fix stolen code,find oep
+	Config: Ingnore all Exceptions
+	Note  : If you have one or more question, email me please,thank you!
+//////////////////////////////////////////////////
+*/
+
+var cbase
+var csize
+var patchaddr
+var patchcode
+
+gmi eip,CODEBASE
+mov cbase,$RESULT
+gmi eip,CODESIZE
+mov csize,$RESULT
+
+start:
+  gpa "LoadLibraryExA","kernel32.dll"     //Get API function "LoadLibraryExA" address
+  bp $RESULT
+  run
+
+
+lbl2:
+  bc $RESULT
+  rtu
+  cmp eip,70000000           
+  jb lbl3
+  sto
+  rtu
+
+lbl3:
+  findop eip,#66F7062000#     //Found "Test [esi]20"
+  cmp $RESULT,0
+  je lblabort
+  go $RESULT
+
+lbl4:                          //Action:fix import function
+  asm eip,"TEST WORD PTR [ESI],8"
+  sto
+  mov patchaddr,eip
+  mov [patchaddr],#7546#
+  findop eip,#7439#
+  mov patchaddr,$RESULT
+  mov [patchaddr],#7424#
+  findop eip,#7417#
+  mov patchaddr,$RESULT
+  mov [patchaddr],#7402#
+
+lbl5:
+  findop eip,#C21400#     //Goto return
+  go $RESULT
+  
+lbl6:
+  bprm cbase,csize
+  run
+
+lbl7:
+  bpmc
+
+lblpatch:
+  mov patchaddr,eip          //Patch OEP code
+  sub patchaddr,5
+  mov [patchaddr],68
+  cmt patchaddr,"OEP,Please dumped it!"
+  add patchaddr,1
+  mov patchcode,[esp]
+  mov [patchaddr],patchcode
+
+lblend:
+  msg "Script by loveboom[DFCG][FCG],Thank you for using my script!"
+  ret
+
+
+lblabort:                        //Error Message
+  msg "Error,Script abort!Maybe target is not protect by OBS1.061 or you forgot ignore all Exceptions"
+  ret

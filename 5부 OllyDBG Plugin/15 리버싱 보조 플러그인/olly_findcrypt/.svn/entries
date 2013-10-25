@@ -1,0 +1,32 @@
+8
+
+dir
+6
+svn://window32.iptime.org:1193/Microsoftware/2008.12/%EB%8B%A4%EB%A5%B8PC/12%EC%9B%94%ED%98%B8/olly_findcrypt
+svn://window32.iptime.org:1193/Microsoftware
+
+
+
+2011-04-10T15:24:04.093750Z
+6
+window31
+
+
+svn:special svn:externals svn:needs-lock
+
+src
+dir
+
+findcrypt.dll
+file
+
+
+
+
+2011-04-02T13:14:04.656250Z
+20a30974d79bda5d195709bf30e0ab9e
+2011-04-10T15:24:04.093750Z
+6
+window31
+has-props
+

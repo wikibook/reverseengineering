@@ -1,0 +1,4 @@
+[0000 - 15:39:47]  ::Retail:: ScudEngine Standard Log File...v1.000000
+[0001 - 15:39:47]   actor(00651978) constructor
+[0002 - 15:39:47]  GPackManager::LoadPack( E:\recover2\°­º´Å¹ GameBusiness\Fanstic Tools\PEiD\text_data.pak ) = cannot find such file!
+[0003 - 15:39:47]  GPackManager::LoadPack( E:\recover2\°­º´Å¹ GameBusiness\Fanstic Tools\PEiD\text_data_ext.pak ) = cannot find such file!

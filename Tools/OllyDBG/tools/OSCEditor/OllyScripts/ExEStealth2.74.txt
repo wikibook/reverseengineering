@@ -1,0 +1,33 @@
+/*
+//////////////////////////////////////////////////
+	ExE Stealth 2.74 OEP Finder v0.1
+	Author:	loveboom
+	Email : bmd2chen@tom.com
+	OS    : Win2kADV sp2,OllyDbg 1.1b,OllyScript v0.61
+	Date  : 2004-3-9
+	Config: Uncheck "Memory access violation"
+		and IsDebuggerPresent->Hide
+	Note  :If you have one or more question 
+		email me please,thank you!
+//////////////////////////////////////////////////
+*/
+
+var csize
+var cbase
+gmi eip,CODEBASE
+mov cbase,$RESULT
+gmi eip,CODESIZE
+mov csize,$RESULT
+run
+
+lbl1:
+esto
+eob lbl2
+bprm cbase,csize
+esto
+
+lbl2:
+bpmc
+cmt eip,"OEP!Please dump it:)!"
+msg "Script by loveboom[DFCG],Thank you for using my Script!"
+ret

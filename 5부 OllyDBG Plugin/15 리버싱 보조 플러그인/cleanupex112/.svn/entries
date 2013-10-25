@@ -1,0 +1,56 @@
+8
+
+dir
+4
+svn://window32.iptime.org:1193/Microsoftware/2008.12/%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/g_cleanupex112
+svn://window32.iptime.org:1193/Microsoftware
+
+
+
+2010-08-22T18:04:06.218750Z
+1
+window31
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a632ed07-ee1f-904f-8090-3202fc4bc8f3
+
+CleanupEx.ini
+file
+
+
+
+
+2011-03-27T15:11:42.656250Z
+a2189fe3404e9c9319889e24368b1ed5
+2010-08-22T18:04:06.218750Z
+1
+window31
+
+src112
+dir
+
+CleanupEx.dll
+file
+
+
+
+
+2011-03-27T15:11:42.656250Z
+e0e097bb63690f24aaa2dd75546824a8
+2010-08-22T18:04:06.218750Z
+1
+window31
+has-props
+

@@ -1,0 +1,55 @@
+***********************************************************
+****************           Stud_PE             ************
+ ................Portable Executables editor..............
+***********************************************************								
+					
+					   version 1.8.0
+
+				-------by CGSoftLabs--------
+
+			URL:http://itimer.home.ro/studpe.html
+
+=-----------------=
+| PE Viewer/Editor|
+=-----------------=
+*View/edit PE basic Header information.
+  -header structures to hexeditor;
+
+*View/edit Section Table:
+  -add new section;
+
+*View/edit Directory Table:
+  -Import/Export Table viewer ;
+  -Import adder;
+  -Resource viewer/editor (save/replace ico/cur/bmp);   
+
+*Pe Scanner (PEiD sig database):
+  -400 packers/protectors/compilers; 
+
+*Task viewer/dumper/killer.
+ 
+*PEHeader/Binary file compare. 
+
+*RVA to RAW to RVA. 
+
+*Drag'nDrop shell menu integration. 
+
+*Basic HexEditor.
+
+News : ver 1.8.0 (27 aug 2003)
+-Yoda proposed me to combine StudPe with LordPE ...cool;
+unfortunally i'm coding other proggies at this moment 
+so i don't know if i can start this giant project ...ever ;(
+-this version is still beta;
+-updated signature database and Detection Engine;
+-fixed few bugs;
+-added some options;
+
+Note:
+ If you have sugesstions/report bugs, please mail me at christig@home.ro Subject Stud_PE;
+ Want to code at Stud_Pe..?..contact me!
+ Do you have some PE signatures and you want to enhance Stud_PE SIG database also contact me!
+ I don't have too much time for coding at this project so be pacient;
+
+ ChristiG - CGSoftLabs 2003
+ --------------------------
