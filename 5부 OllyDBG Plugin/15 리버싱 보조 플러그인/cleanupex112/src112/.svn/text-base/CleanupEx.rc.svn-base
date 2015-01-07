@@ -1,0 +1,28 @@
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DELSESOPT DIALOG DISCARDABLE  10, 10, 154, 60
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "CleanupEx Options"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,25,40,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,81,40,50,14
+    CONTROL         "Confirm before delete",IDC_CONFIRM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,21,10,79,10
+END
+
+IDD_SESSIONLIST DIALOG DISCARDABLE  0, 0, 412, 203
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Session File List"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "&Exit",IDOK,355,7,50,14
+    CONTROL         "List1",IDC_SESSIONLIST,"SysListView32",LVS_REPORT | WS_BORDER | WS_TABSTOP,7,32,398,164
+    PUSHBUTTON      "Delete &All",IDC_BTN_DELALL,7,7,65,14
+    PUSHBUTTON      "Delete No Debu&ggee",IDC_BTN_DELNODBGE,74,7,65,14
+    PUSHBUTTON      "Delete &bak",IDC_BTN_DELBAK,142,7,65,14
+END
